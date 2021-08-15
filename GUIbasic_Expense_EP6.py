@@ -20,9 +20,10 @@ filemenu.add_command(label='Export to Googlesheet')
 
 # Help Menu
 def About(): # ใช้ฟังชันก์ในเมนู help ประกาศที่ให้ทำงาน command=About
+	messagebox.showinfo('About','Waiting Two Month')
+
+def donate(): # ใช้ฟังชันก์ในเมนู help ประกาศที่ให้ทำงาน command=About
 	messagebox.showinfo('About','Please Danate For Me\nOne BTC Thank You BTC Address : A12B203Z')
-
-
 
 helpmenu = Menu(menubar,tearoff=0)
 menubar.add_cascade(label='Help',menu=helpmenu)
@@ -31,7 +32,7 @@ helpmenu.add_command(label='About',command=About)
 # Donate Menu
 donatemenu = Menu(menubar,tearoff=0)
 menubar.add_cascade(label='Donate',menu=donatemenu)
-donatemenu.add_command(label='Thank You')
+donatemenu.add_command(label='Thank You',command=donate)
 
 
 #####################
