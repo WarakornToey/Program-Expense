@@ -9,8 +9,8 @@ GUI.geometry("600x700+500+50") # ตั้งค่าขนาด GUI (500+50)�
 
 ##### Menu Bar ######
 
-menubar = Menu(GUI)
-GUI.config(menu=menubar)
+menubar = Menu(GUI)  #สร้างเมนู Bar
+GUI.config(menu=menubar) 
 
 # File Menu
 filemenu = Menu(menubar,tearoff=0) # tearoff=0 เอาเส้นประออก
@@ -109,8 +109,8 @@ def save(event=None): # ประกาศฟังก์ชัน, event=None �
 			fw.writerow(data)
 
 			# ทำให้ Cursor กลับไปตำเเหน่ช่องกรอกเเรก E1
-			E1.focus()
-			update_table() # นำมาจาก fn update table เพื่อให้ตารางมีการ update // fn save ยังไม่มีการ Run จึงสามารถใช้งานก่อนประกาศ fn update ได้
+		E1.focus()
+		update_table() # นำมาจาก fn update table เพื่อให้ตารางมีการ update // fn save ยังไม่มีการ Run จึงสามารถใช้งานก่อนประกาศ fn update ได้
 	
 	except:
 		print('Error')
@@ -181,7 +181,7 @@ resulttable.pack()
 for h in header:
 	resulttable.heading(h, text= h)
 
-headerwidth = [150,170,80,80,80] # กำหนดความกว้าง Header ขนาดตาราง
+headerwidth = [160,170,80,80,80] # กำหนดความกว้าง Header ขนาดตาราง
                                     
 for h,w in zip(header,headerwidth): # ใช้ For loop ในการจับคู่โดยใช้ zip ในการช่วย
 	resulttable.column(h,width=w)
@@ -191,11 +191,7 @@ def update_table(): # สร้าง fn update ตาราง
 	data = read_csv() # ดึง data csv
 
 	for d in data:
-		resulttable.column(h,width=w)
-
-	print(data)
-	resulttable.insert('',0, value=d)
-
+		resulttable.insert('',0, value=d)
 
 
 update_table()
